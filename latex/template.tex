@@ -56,7 +56,7 @@
 %\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
 % --- End of Author Metadata ---
 
-\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX Format}
+\title{UDP-Lite {\ttlit}}
 %
 % You need the command \numberofauthors to handle the 'placement
 % and alignment' of the authors beneath the title.
@@ -82,7 +82,7 @@
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{2} %  in this sample file, there are a *total*
+\numberofauthors{1} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
@@ -99,9 +99,9 @@
 %
 % 1st. author
 \alignauthor
-Ben Trovato\\
+Johannes Hamfler\\
        \affaddr{KMI12}\\
-       \email{trovato@hft-leipzig.de}
+       \email{johannes.hamfler@hft-leipzig.de}
 % 2nd. author
 \alignauthor
 2nd author
@@ -138,38 +138,20 @@ Ben Trovato\\
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
 % in the \additional authors block, viz.
-\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
-email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
-(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-\date{30 July 1999}
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{13 Dezember 2014}
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
 
 \maketitle
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings. It is an {\em alternate} style which produces
-a {\em tighter-looking} paper and was designed in response to
-concerns expressed, by authors, over page-budgets.
-It complements the document \textit{Author's (Alternate) Guide to
-Preparing ACM SIG Proceedings Using \LaTeX$2_\epsilon$\ and Bib\TeX}.
-This source file has been written with the intention of being
-compiled under \LaTeX$2_\epsilon$\ and BibTeX.
+In diesem Dokument wird das Leightweight User Datagram Protokoll (UDP-Lite) beschrieben, welches ähnlich UDP ist. Der Focus dieses Dokuments liegt in der Beschreibung der Vorteile, die UDP-Lite gegenüber UDP aufweisen kann. Des Weiteren wird das Protokoll in das ISO OSI-Referenzmodell eingeordnet und die Auswirkungen auf andere Schichten in diesem beschrieben.
 
-The developers have tried to include every imaginable sort
-of ``bells and whistles", such as a subtitle, footnotes on
-title, subtitle and authors, as well as in the text, and
-every optional component (e.g. Acknowledgments, Additional
-Authors, Appendices), not to mention examples of
-equations, theorems, tables and figures.
-
-To make best use of this sample document, run it through \LaTeX\
-and BibTeX, and compare this source code with the printed
-output produced by the dvi file. A compiled PDF version
-is available on the web page to help you with the
-`look and feel'.
+------------------------------
+ \LaTeX\ {\em alternate} \textit{bla}
 \end{abstract}
 
 % A category with the (minimum) three required fields
@@ -181,7 +163,11 @@ is available on the web page to help you with the
 
 \keywords{ACM proceedings, \LaTeX, text tagging}
 
-\section{Introduction}
+\section{Einleitung}
+
+Dieses Dokument beschreibt das Lightweight User Datagram Protokoll (UDP-Lite), welches eine Erweitung von UDP (RFC 768) darstellt. Es wird besonderer Bezug auf die Vorteile genommen, die UDP-Lite gegenüber UDP hat. Des Weiteren findet eine Einordnung in das ISO OSI-Referenzmodell statt und es werden die Auswirkungen beschrieben, die das Protokoll auf andere OSI-Schichten haben kann.
+
+
 The \textit{proceedings} are the records of a conference.
 ACM seeks to give these conference by-products a uniform,
 high-quality appearance.  To do this, ACM has some rigid
@@ -424,7 +410,7 @@ commands as appropriate for the different file types.
 
 \begin{figure}
 \centering
-\psfig{file=rosette.ps, height=1in, width=1in,}
+%\psfig{file=rosette.ps, height=1in, width=1in,}
 \caption{A sample black and white graphic (.ps format) that has
 been resized with the \texttt{psfig} command.}
 \vskip -6pt
