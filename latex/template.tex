@@ -412,6 +412,34 @@ müssen diese Varianten nicht benutzt werden.
 
 \subsection{Sicherheitsbetrachtungen}
 
+Der Sicherhitsaspekt von UDP-Lite hängt von der Interaktion mit
+Authentifizierungs- und Verschlüsselungsverfahren ab. Da der sensible
+Teil des Payloads beim Übertragen über verschiedene Netzsegmente variieren
+kann, würde im Fall einer Beschädigung des Pakets
+die Authentifizierung oder Verschlüsselung korrumpiert werden.
+Dies gilt besonders dann, wenn IPv6 verwendet wird, da hier eine Fehlerkorrektur
+im IP-Paket vorhanden sein muss. Sollte ebenfalls IPSec mit ESP genutzt werden
+kann eien Verbindung nicht feststellen welches Transportprotokoll
+verwendet wird. UDP-Lite kann in diesem Fall keinen Vorteil für
+darüber liegende Codecs oder Anwendungen erwirken.
+
+Stattdessen kann eine Verschlüsselung in der Transportschicht oder auf
+Anwendungsebene angewandt werden, jedoch haben Verschlüsselungsverfahren,
+(besonders Blockbasierte) die Eigenheit, dass ein fehlerhaftes Bits
+den gesamten Block unbrauchbar macht. Deshalb sollten spezielle
+Stromchiffren verwendet werden, die dieses Verhalten minimieren.
+Der Nachteil dieser ist jedoch, dass ein Angreifer möglichweise
+vorhersagbare Manipulationen am Payload vornehmen kann ohne den
+verschlüsselten Payload vollständig entschlüsseln zu müssen.
+
+
+
+\subsection{IANA Protokollnummer}
+
+Die IANA vergab UDP-Lite die Protokollnummer 136, änderte jedoch den
+Namen auf UDPLite, da somit eine größere Bandbreite an Pattformen
+mit diesem bedient werden kann, besonders diejenigen, die ein Minus-Zeichen
+nicht unterstützen.
 
 
 
