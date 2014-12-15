@@ -328,6 +328,30 @@ ihre eigenen Fehlerprüfmechnismen nutzen.
 
 \subsection{Die IP-Schnittstelle}
 
+Wie bei UDP muss auch UDP-Lite den Pseudo-Header der 
+IP-Implementierung erhalten, welcher die IP-Adresse 
+und Protokollfelder des IP-Headers beinhaltet, sowie die
+Länge des IP-Payloads welche aus dem Längenfeld der IP-Pakete
+entnommen werden kann.
+Der Sender darf dabei nicht den IP-Payload mit Padding-Bytes
+auffüllen, da die Länge des UDP-Lite-Pakets daraus entnommen werden soll.
+
+
+\subsection{IP-Jumbo-PDUs}
+
+Da das Prüfsummenlängenfeld Werte bis 65535 annehmen kann,
+können genaue Prüfsummenlängen benutzt werden. Dies ist bei
+Jumbo-PDUs (Jumbogrammen) nicht der Fall. Es kann entweder das
+gesamte Paket mit der Prüfsummenlänge von 0 oder alle Oktette bis
+zum 65535ten Oktett einschließen.
+
+
+\subsection{Betrachtung der niedrigeren Schichten}
+
+
+
+
+
 
 
 

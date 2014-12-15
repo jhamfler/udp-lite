@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  15 DEC 2014 19:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  15 DEC 2014 20:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,13 +459,24 @@ Overfull \hbox (4.13776pt too wide) in paragraph at lines 282--287
  []
 
 
-Overfull \hbox (2.93324pt too wide) in paragraph at lines 305--313
+Overfull \hbox (6.31598pt too wide) in paragraph at lines 310--319
+\T1/aer/m/n/9 beim Sender sollen An-wen-dun-gen die fehler-tol-er-ant sind UDP-
+
+ []
+
+
+Overfull \hbox (3.26378pt too wide) in paragraph at lines 320--327
+\T1/aer/m/n/9 nah-men der Fehler in einem UDP-Lite-Paket machen, solange
+ []
+
+
+Overfull \hbox (2.93324pt too wide) in paragraph at lines 360--368
 []\T1/aer/m/n/9 ------------------------------------------------------------- \
 T1/aett/m/n/9 \sec-tion []
  []
 
 [2]
-Overfull \hbox (1.41365pt too wide) in paragraph at lines 427--434
+Overfull \hbox (1.41365pt too wide) in paragraph at lines 482--489
  [][] 
  []
 
@@ -477,13 +488,13 @@ Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    size: 4243 bytes
 (epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
 ly.eps>
-(epstopdf)             \includegraphics on input line 474.
+(epstopdf)             \includegraphics on input line 529.
 Package epstopdf Info: Output file is already uptodate.
-<fly-eps-converted-to.pdf, id=26, 34.1275pt x 32.12pt>
+<fly-eps-converted-to.pdf, id=22, 34.1275pt x 32.12pt>
 File: fly-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 474.
+Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 529.
 (pdftex.def)             Requested size: 34.1274pt x 32.1199pt.
 Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    date: 2013-05-18 03:31:02
@@ -493,16 +504,16 @@ Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    size: 4243 bytes
 (epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
 ly.eps>
-(epstopdf)             \includegraphics on input line 480.
+(epstopdf)             \includegraphics on input line 535.
 Package epstopdf Info: Output file is already uptodate.
 File: fly-eps-converted-to.pdf Graphic file (type pdf)
  <use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 480.
+Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 535.
 (pdftex.def)             Requested size: 72.27492pt x 72.27565pt.
 
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 482.
+(Font)              using `T1/aett/m/n' instead on input line 537.
 
 Package epstopdf Info: Source file: <flies.eps>
 (epstopdf)                    date: 2013-05-18 03:31:02
@@ -512,27 +523,27 @@ Package epstopdf Info: Source file: <flies.eps>
 (epstopdf)                    size: 9687 bytes
 (epstopdf)             Command: <repstopdf --outfile=flies-eps-converted-to.pdf
  flies.eps>
-(epstopdf)             \includegraphics on input line 495.
+(epstopdf)             \includegraphics on input line 550.
 Package epstopdf Info: Output file is already uptodate.
-<flies-eps-converted-to.pdf, id=27, 307.1475pt x 114.4275pt>
+<flies-eps-converted-to.pdf, id=23, 307.1475pt x 114.4275pt>
 File: flies-eps-converted-to.pdf Graphic file (type pdf)
 
 <use flies-eps-converted-to.pdf>
-Package pdftex.def Info: flies-eps-converted-to.pdf used on input line 495.
+Package pdftex.def Info: flies-eps-converted-to.pdf used on input line 550.
 (pdftex.def)             Requested size: 307.14674pt x 114.42722pt.
+ [3]
 \c@theorem=\count126
 \c@definition=\count127
- [3 <./fly-eps-converted-to.pdf>]
-Overfull \hbox (15.60826pt too wide) detected at line 563
+
+Overfull \hbox (15.60826pt too wide) detected at line 618
 \OML/cmm/m/it/9 l \OT1/cmr/m/n/9 = [] \OML/cmm/m/it/9 f\OT1/cmr/m/n/9 (\OML/cmm
 /m/it/9 x\OT1/cmr/m/n/9 ) = [] [] = [] \OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cm
 m/m/it/9 x\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 ^^A [] [] \OT1/cmr/m/n/9 = 0 \OMS/cm
 sy/m/n/9 ^^A \OML/cmm/m/it/9 L \OT1/cmr/m/n/9 = 0\OML/cmm/m/it/9 ;
  []
 
-(./template.bbl) [4 <./flies-eps-converted-to.pdf>] [5
-
-] (./template.aux)
+[4 <./flies-eps-converted-to.pdf> <./fly-eps-converted-to.pdf>] (./template.bbl
+) [5] (./template.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -540,7 +551,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  5904 strings out of 493304
  75345 string characters out of 6139870
- 196005 words of memory out of 5000000
+ 197005 words of memory out of 5000000
  9211 multiletter control sequences out of 15000+600000
  65304 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -563,7 +574,7 @@ nts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (5 pages, 236330 bytes).
+Output written on template.pdf (5 pages, 238915 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream
