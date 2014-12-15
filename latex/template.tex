@@ -288,6 +288,47 @@ Fall korrekt ankommen.
 
 \subsection{Der Pseudo-Header}
 
+Der Pseudo-Header von UDP-Lite unterscheidet sich von dem in UDP
+insofern, dass der Wert des Längenfeldes nicht von UDP-Lite-Header genommen wird,
+sondern von Informationen aus den IP-Paketen. Dabei wird die
+Berechnung gleich wie bei TCP ausgeführt, was bedeutet, dass
+nicht nur der Payload, sondern auch der Header von UDP-Lite mit
+einbezogen wird. Dadurch, dass die Länge auf diese Weise berechnet,
+muss das Prüfsummenfeld bei 8 beginnen und ermöglicht so einen
+einfachen softwareseitigen Vergleich.
+
+
+\subsection{Die Anwendungsschnittstelle}
+
+Die Anwendungsschnittstelle stellt die gleichen Funktionen wie
+bei UDP zur Verfügung. Des Weiteren sollte eine Möglichkeit der
+sendenden Anwendung bestehen, den Prüfsummenlängenwert an UDP-Lite
+zu übertragen. Zumindest sollte jedoch die Möglichkeit für eine
+empfangende Anwendung bestehen, die Weiterleitung von Paketen mit
+Prüfsummenlängen kleiner als eine Festgelegte zu blockieren.
+
+Im RFC wird empfohlen, dass UDP-Lite standardmäßig das Verhalten
+von UDP imitieren sollte, indem das Prüfsummenlängenfeld der
+Länge des UDP-Lite-Pakets entsprechen soll, um das gesamte Paket
+verifizieren zu können. Über einen expliziten Aufruf, einem
+sogenannten System Call, beim Sender sollen Anwendungen die 
+fehlertolerant sind UDP-Lite ihre Fehlertoleranz
+mitteilen. Eine empfangende Anwendung die ebenfalls eine teilweise
+angewandte Prüfsumme nutzen wollen, sollte dies ebenfalls über
+einen einen solchen Aufruf kund geben.
+
+Da im Internet Pfade variieren und verschiedene Eigenschaften aufweisen,
+können keine pauschalen Aussagen über die Fehlerschemas einer
+Verbindung gemacht werden. Deshalb sollten Anwendungen die UDP-Lite
+nutzen keine Annahmen der Fehler in einem UDP-Lite-Paket machen,
+solange der Bereich nicht in die Berechnung der Prüfsumme
+mit einbezogen wurde. Anwendungen sollten deshalb, wenn nötig
+ihre eigenen Fehlerprüfmechnismen nutzen.
+
+
+\subsection{Die IP-Schnittstelle}
+
+
 
 
 
