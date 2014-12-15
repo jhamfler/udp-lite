@@ -47,6 +47,7 @@
 
 \documentclass{template}
 \usepackage[utf8x]{inputenc}
+\include{listing_packets}
 
 \begin{document}
 %
@@ -103,10 +104,10 @@ Johannes Hamfler\\
        \affaddr{KMI12}\\
        \email{johannes.hamfler@hft-leipzig.de}
 % 2nd. author
-\alignauthor
-#2nd author
-#       \affaddr{affiliation}\\
-#       \email{e-mail}
+%\alignauthor
+%2nd author
+%       \affaddr{affiliation}\\
+%       \email{e-mail}
 % 3rd. author
 % \alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
 % one who did all the really hard work.}\\
@@ -170,29 +171,13 @@ UDP, welches im RFC 768 beschrieben ist wurde jahrelang als verbindungsloses Pro
 
 
 -----------------------------------------
-The \textit{proceedings} are the records of a conference.
-ACM seeks to give these conference by-products a uniform,
-high-quality appearance.  To do this, ACM has some rigid
-requirements for the format of the proceedings documents: there
-is a specified format (balanced  double columns), a specified
-set of fonts (Arial or Helvetica and Times Roman) in
-certain specified sizes (for instance, 9 point for body copy),
-a specified live area (18 $\times$ 23.5 cm [7" $\times$ 9.25"]) centered on
-the page, specified size of margins (1.9 cm [0.75"]) top, (2.54 cm [1"]) bottom
-and (1.9 cm [.75"]) left and right; specified column width
-(8.45 cm [3.33"]) and gutter size (.83 cm [.33"]).
-
-The good news is, with only a handful of manual
-settings\footnote{Two of these, the {\texttt{\char'134 numberofauthors}}
-and {\texttt{\char'134 alignauthor}} commands, you have
-already used; another, {\texttt{\char'134 balancecolumns}}, will
-be used in your very last run of \LaTeX\ to ensure
-balanced column heights on the last page.}, the \LaTeX\ document
-class file handles all of this for you.
-
+\textit{proceedings}
+(18 $\times$ 23.5 cm [7" $\times$ 9.25"])
+\footnote{Two of these, the {\texttt{\char'134 numberofauthors}}}
+{\texttt{\char'134 alignauthor}}
+{\texttt{\char'134 balancecolumns}}
 
 %#############################################
-\section{Protokollübersicht {\secit UDP-Lite}}
 
 In RFC 3828 findet sich ..
 
@@ -220,7 +205,9 @@ wird der Payload nicht für die Entscheidung der Weiterleitung an höhere Schich
 Wird eine Prüfsumme über das gesamte Paket angewandt, so ist UDP-Lite semantisch identisch
 zu UDP.
 
-Im RFC werden folgende Codecs als Beispiele genannt, welche mit UDP-Lite
+Im RFC wurden Beobachtungen erläutert, welche hier kurz erwähnt werden.
+
+Es wurden folgende Codecs als Beispiele genannt, welche mit UDP-Lite
 eine Verbesserung der decodierten Daten erreichen können:
 AMR speech codec [RFC-3267]
 Internet Low Bit Rate Codec [ILBRC]
@@ -228,31 +215,92 @@ error resilient H.263+ [ITU-H.263]
 H.264 [ITU-H.264; H.264]
 MPEG-4 [ISO-14496] video codecs)
 
+Des Weiteren ist es nützlich, wenn niedrigere Schichten beschädigte IP Pakete
+weiterleiten, wenn dies verlangt wird. Sollten Verbindungen sich ihrer
+Fehleranfälligkeit bewusst sein, so ist es möglich, dass eine physische Verbindung
+eine höhere Sicherheit für sensible Daten gewährleisten, was durch verschiedene
+Fehlerkorrekturverfahren erreicht werden kann.
+
+Außerdem sollte die Transport- und Vermittlungsschicht höher gelegene
+Applikationen nicht an ihrer Ausführung hindern, weil Pakete beschädigt sind.
+UDP eigent sich deshalb nur bedingt, da bei diesem die Prüfsumme gesetzt
+sein muss. Bei IP ist dies nicht der Fall.
 
 
 
-Typically, the body of a paper is organized
-into a hierarchical structure, with numbered or unnumbered
-headings for sections, subsections, sub-subsections, and even
-smaller sections.  The command \texttt{{\char'134}section} that
-precedes this paragraph is part of such a
-hierarchy.\footnote{This is the second footnote.  It
+\section{Protokollübersicht {\secit UDP-Lite}}
+
+Nachfolgend ist der UDP-Header abgebildet.
+
+\begin{lstlisting}[linewidth=0.47\textwidth]
+     0              15 16             31
+    +--------+--------+--------+--------+
+    |     Source      |   Destination   |
+    |      Port       |      Port       |
+    +--------+--------+--------+--------+
+    |    Checksum     |                 |
+    |    Coverage     |    Checksum     |
+    +--------+--------+--------+--------+
+    |                                   |
+    :              Payload              :
+    |                                   |
+    +-----------------------------------+
+\end{lstlisting}
+\cite{rfc:udplite}
+
+Dieser unterscheidet sich von dem UDP-Header in der Hinsicht, dass
+das Length-Feld mit einem Cecksum-Coverage-Feld ausgestattet wurde.
+Dieses ist dazu da, um die Länge anzugeben, bis wohin die Prüfsumme
+berechnet wird. Dies war möglich, da die Information über die Länge
+des Pakets aus IP-Paketen entnommen werden kann.
+
+\subsection{Beschreibung der Felder der PDU}
+
+Das Source- und Destination-Port-Feld sind dem von UDP gleich, wobei
+das Checksum-Coverage-Feld die Länge in Oketetten angibt, die von
+der Prüfsumme einbezogen werden. Hierbei wird ab dem ersten Oktett
+mit dem Zählen angefangen. 
+
+Der Header muss dabei immer mit einer Prüfsumme gesichert werden.
+Eine Prüfsumme von 0 bedeutet dabei, dass das gesamte Paket in die
+Prüfsumme einbezogen wird. Die Prüfsumme des UDP-Header muss 0 oder
+mindestens 8 sein, was bedeutet, dass die 8 Bytes des Headers beinhaltet
+sein müssen. Ein Paket mit einer Prüfsummenlänge zwischen 1 und 7 muss
+beim Empfänger verworfen werden, da dieses die Bedingung nicht erfüllt.
+Das berechnete Prüfsummenfeld muss einen Preuso-Header enthalten welcher
+auf IP basiert. UDP-Lite Pakete die eine gößere Prüfsummenlänge als
+der IP-Header annehmen kann müssen ebenfalls verworfen werden.
+
+Da das Prüfsummenfeld ein 16-Bit-Komplement-Einerkomplement der Summe
+des Einerkomplements des Pseudo-Headers darstellt, muss das UDP-Lite-Paket
+im Payload ein vielfaches von 2Byte aufweisen. Notfalls wird dieses mit
+Nullen aufgefüllt. Die Informationen, aus welchen die Prüfsumme berechnet
+wird, werden dem IP-header entnommen. Bevor die Prüfsumme berechnet wird
+muss das Prüfsumenfeld jedoch auf 0 gesetzt werden. Sollte nach der
+Berechnung die Prüfsumme 0 ergeben, so werden 16 Einsen übertragen.
+
+Da manche Anwendungen die UDP-Lite benutzen möglicherweise keine
+Fehlerbehandlung wünschen, kann hier die Prüfsummenlänge einfach
+auf 8 gesetzt werden um den Payload nicht mit einbeziehen zu müssen.
+Dadurch wird sichergestellt, dass die Steuerinformationen in jedem
+Fall korrekt ankommen.
+
+
+\subsection{Der Pseudo-Header}
+
+
+
+
+
+-------------------------------------------------------------
+\texttt{{\char'134}section}
+\footnote{This is the second footnote.  It
 starts a series of three footnotes that add nothing
 informational, but just give an idea of how footnotes work
 and look. It is a wordy one, just so you see
-how a longish one plays out.} \LaTeX\ handles the numbering
-and placement of these headings for you, when you use
-the appropriate heading commands around the titles
-of the headings.  If you want a sub-subsection or
-smaller part to be unnumbered in your output, simply append an
-asterisk to the command name.  Examples of both
-numbered and unnumbered headings will appear throughout the
-balance of this sample document.
+how a longish one plays out.}
+\textbf{document} 
 
-Because the entire article is contained in
-the \textbf{document} environment, you can indicate the
-start of a new paragraph with a blank line in your
-input file; that is why this sentence forms a separate paragraph.
 
 \subsection{Type Changes and {\subsecit Special} Characters}
 We have already seen several typeface changes in this sample.  You

@@ -3,9 +3,10 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: template.aux
 The style file: abbrv.bst
 Database file #1: template.bib
+Warning--I didn't find a database entry for "RFC"
 You've used 6 entries,
             2118 wiz_defined-function locations,
-            536 strings with 4443 characters,
+            538 strings with 4449 characters,
 and the built_in function-call counts, 1813 in all, are:
 = -- 176
 > -- 59
@@ -44,3 +45,4 @@ warning$ -- 0
 while$ -- 17
 width$ -- 7
 write$ -- 69
+(There was 1 warning)
