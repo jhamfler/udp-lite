@@ -348,6 +348,27 @@ zum 65535ten Oktett einschließen.
 
 \subsection{Betrachtung der niedrigeren Schichten}
 
+Frames die UDP-Lite-Pakete enthalten dürfen von niedrigeren
+Schichten nicht verworfen werden, da die Fehlerbehandlung in einer
+höheren Schicht erfolgt. Eine Ausnahme wäre der Fall, wenn ein
+Fehler im sensiblen Datenbereich existiert. Das Prüfsummenlängenfeld
+könnte für Verbindungen, welche partielle Fehlererkennung ermöglichen dafür benutzt werden,
+niedrigeren Schichten mitzuteilen,
+in welchen Bereichen Fehler auftreten dürfen. Da der sensible
+Teil des UDP-Lite-Pakets zwischen dem ersten Oktet des IP-Headers
+und dem letzten Oktet liegt, welcher vom Prüfsummenlängenfeld
+bekannt gegeben wird, kann der sensible Teil in der gleichen Weise
+behandelt werden, wie ein UDP-Paket.
+
+Da Verbindungen, welche keine partielle Fehlererkennung ermöglichen,
+in einem Fehlerfall das Paket verwerfen müssen, wird das UDP-Lite-Paket
+in gleicher Weise wie ein UDP-Paket behandelt.
+
+Somit lässt sich bei UDP-Lite sagen, dass dieses Protokoll nur eine
+Verbesserung erwirken kann, wenn in Schicht 2 des OSI-Referenzmodells
+die Partielle Prüfsumme und die Prüfsummenlänge von UDP-Lite genutzt wird.
+Dies würde seine Wirkung jedoch erst in Fehleranfälligen
+Umgebungen entfalten.
 
 
 
