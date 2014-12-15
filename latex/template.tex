@@ -149,87 +149,105 @@ Johannes Hamfler\\
 
 \maketitle
 \begin{abstract}
-In diesem Dokument wird das Leightweight User Datagram Protokoll (UDP-Lite) beschrieben, welches ähnlich UDP ist. Der Focus dieses Dokuments liegt in der Beschreibung der Vorteile, die UDP-Lite gegenüber UDP aufweisen kann. Des Weiteren wird das Protokoll in das ISO OSI-Referenzmodell eingeordnet und die Auswirkungen auf andere Schichten in diesem beschrieben.
+In diesem Dokument wird das Leightweight User Datagram Protokoll (UDP-Lite) beschrieben,
+welches ähnlich UDP ist. Der Focus dieses Dokuments liegt in der Beschreibung der Vorteile,
+die UDP-Lite gegenüber UDP aufweisen kann. Des Weiteren wird das Protokoll in das
+ISO OSI-Referenzmodell eingeordnet und die Auswirkungen auf andere Schichten in diesem beschrieben.
 Dieses Dokument orientiert sich stark am RFC.
 
-------------------------------
- \LaTeX\ {\em alternate} \textit{bla}
+% \LaTeX\ {\em alternate} \textit{bla}
 \end{abstract}
 
 % A category with the (minimum) three required fields
-\category{H.4}{Information Systems Applications}{Miscellaneous}
+%\category{H.4}{Information Systems Applications}{Miscellaneous}
+\category{Ausarbeitung}{Lehrveranstaltung Protokolle}{RFC-Protokolle}
 %A category including the fourth, optional field follows...
-\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+%\category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
 
-\terms{Theory}
+\terms{Beschreibung von UDP-Lite}
 
 \keywords{UDP-Lite}
 
 \section{Einleitung}
 
-UDP, welches im RFC 768 beschrieben ist wurde jahrelang als verbindungsloses Protokoll verwendet und ist weit verbreitet. Ach heute hat dieses große Bedeutung für Sprachdienste, Videokommunikation und Echtzeitübertragung. Der Vorteil des Protokolls gegenüber TCP liegt vor allem bei der Sprachkommunikation darin, dass verlorene und fehlerhafte Datenpakete nicht erneut übertragen werden, da diese nach wenigen Millisekunden schon nicht mehr von Bedeutung sind. UDP-Lite versucht das Problem der fehlerhaften Pakete, welche beim Empfänger gelöscht werden, zu mindern, indem die Option besteht fehlerhafte Pakete dennoch zu verwenden und an höhere Schichten weiterleiten zu können. Bei Sprachdiensten hätte dies den Vorteil, dass der in einer höheren Schicht angesiedelte Codec die korrekten Bits auf eine bestimmte weise verarbeitet, so dass diese nützlich für die Anwendung sind. Fehlerhafte Bits könnten für den Codec ebenfalls einen Nutzen darstellen, so dass UDP-Lite in diesem Zusammenhang einen Vorteil darstellen würde.
+UDP, welches im RFC 768 beschrieben ist wurde jahrelang als verbindungsloses Protokoll verwendet
+und ist weit verbreitet. Auch heute hat dieses große Bedeutung für Sprachdienste,
+Videokommunikation und Echtzeitübertragung. Der Vorteil des Protokolls gegenüber TCP
+liegt vor allem bei der Sprachkommunikation darin, dass verlorene und fehlerhafte Datenpakete
+nicht erneut übertragen werden, da diese nach wenigen Millisekunden schon nicht mehr von Bedeutung sind.\\
+
+In RFC 3828 findet sich die Beschreibung des UDP-Lite Protokolls.
+UDP-Lite versucht das Problem der fehlerhaften Pakete, welche beim Empfänger gelöscht werden,
+zu mindern, indem die Option besteht fehlerhafte Pakete dennoch zu verwenden
+und an höhere Schichten weiterleiten zu können. Bei Sprachdiensten hätte dies den Vorteil,
+dass der in einer höheren Schicht angesiedelte Codec die korrekten Bits
+auf eine bestimmte Weise verarbeitet, so dass diese nützlich für die Anwendung sind.
+Fehlerhafte Bits könnten für den Codec ebenfalls einen Nutzen darstellen,
+so dass UDP-Lite in diesem Zusammenhang einen Vorteil darstellen würde.
 
 
-
------------------------------------------
-\textit{proceedings}
-(18 $\times$ 23.5 cm [7" $\times$ 9.25"])
-\footnote{Two of these, the {\texttt{\char'134 numberofauthors}}}
-{\texttt{\char'134 alignauthor}}
-{\texttt{\char'134 balancecolumns}}
+%\textit{proceedings}
+%(18 $\times$ 23.5 cm [7" $\times$ 9.25"])
+%\footnote{Two of these, the {\texttt{\char'134 numberofauthors}}}
+%{\texttt{\char'134 alignauthor}}
+%{\texttt{\char'134 balancecolumns}}
 
 %#############################################
 
-In RFC 3828 findet sich ..
+
+\section{Protokollübersicht}
+% {\secit UDP-Lite}
+\subsection{Einteilung des Payloads}
 
 Da manche Codecs die Fähigkeit besitzen 
 beschädigten Payload zu behandeln und nützliche Informationen
 aus diesem zu extrahieren, wurde bei UDP-Lite ein Paket in
 zwei Teile aufgegliedert werden. Ein Teil kann mit einem Fehlerkorrekturwert
 überprüft werden, um die Integrität der darin enthaltenen Daten zu sichern,
-ein anderer Teil kann ohne Prüfsumme vorhanden sein.
+ein anderer Teil kann ohne Prüfsumme vorhanden sein.\\
 
 In dem Teil, in welchem
 eine Fehlerüberprüfung stattfinden soll, werden üblicherweise Steuerinformationen
 übertragen, welche unbedingt fehlerfrei vorhanden sein müssen, 
 um die Parameter des Payloads beim Empfänger richtig interpretieren zu können.
 Sollte der Payload in diesem Teil beschädigt sein, wird das Paket beim Empfänger in der
-Transportschicht verworfen.
+Transportschicht verworfen.\\
 
 Der andere Teil des Payloads, welcher beim klassischen UDP üblicherweise Daten enthält,
 welche nicht zwingend neu übertragen werden müssen, kann ohne Fehlerkorrektur übertragen werden,
-damit die darüber liegenden Schichten auch beschädigte Daten bearbeiten können
+damit die darüber liegenden Schichten auch beschädigte Daten bearbeiten können,
 um aus diesen ebenfalls nützliche Informationen für eine Anwendung zu extrahieren.
 Da in diesem Teil nicht überprüft wird ob Fehler vorhanden sind,
-wird der Payload nicht für die Entscheidung der Weiterleitung an höhere Schichten verwendet.
+wird der Payload nicht für die Entscheidung der Weiterleitung an höhere Schichten verwendet.\\
 
-Wird eine Prüfsumme über das gesamte Paket angewandt, so ist UDP-Lite semantisch identisch
-zu UDP.
+Wird eine Prüfsumme über das gesamte Paket angewandt, so ist UDP-Lite zwar semantisch identisch
+zu UDP, wird jedoch unterschiedlich beim Empfänger behandelt.\\
 
-Im RFC wurden Beobachtungen erläutert, welche hier kurz erwähnt werden.
+\subsection{Beobachtungen aus dem RFC}
+Im RFC wurden einige Beobachtungen zu der Datenübertragung erläutert, welche hier kurz erwähnt werden.\\
 
 Es wurden folgende Codecs als Beispiele genannt, welche mit UDP-Lite
 eine Verbesserung der decodierten Daten erreichen können:
-AMR speech codec [RFC-3267]
-Internet Low Bit Rate Codec [ILBRC]
-error resilient H.263+ [ITU-H.263]
-H.264 [ITU-H.264; H.264]
-MPEG-4 [ISO-14496] video codecs)
+\begin{itemize}
+\item AMR speech codec [RFC-3267]
+\item Internet Low Bit Rate Codec [ILBRC]
+\item error resilient H.263+ [ITU-H.263]
+\item H.264 [ITU-H.264; H.264]
+\item MPEG-4 [ISO-14496] video codecs)
+\end{itemize}
 
 Des Weiteren ist es nützlich, wenn niedrigere Schichten beschädigte IP Pakete
 weiterleiten, wenn dies verlangt wird. Sollten Verbindungen sich ihrer
 Fehleranfälligkeit bewusst sein, so ist es möglich, dass eine physische Verbindung
-eine höhere Sicherheit für sensible Daten gewährleisten, was durch verschiedene
-Fehlerkorrekturverfahren erreicht werden kann.
+eine höhere Sicherheit für sensible Daten gewährleistet, was durch verschiedene
+Fehlerkorrekturverfahren erreicht werden kann.\\
 
 Außerdem sollte die Transport- und Vermittlungsschicht höher gelegene
 Applikationen nicht an ihrer Ausführung hindern, weil Pakete beschädigt sind.
 UDP eigent sich deshalb nur bedingt, da bei diesem die Prüfsumme gesetzt
-sein muss. Bei IP ist dies nicht der Fall.
+sein muss. Bei IP ist dies nicht der Fall.\\
 
-
-
-\section{Protokollübersicht {\secit UDP-Lite}}
+\subsection{Der UDP-Lite Header}
 
 Nachfolgend ist der UDP-Header abgebildet.
 
@@ -249,28 +267,29 @@ Nachfolgend ist der UDP-Header abgebildet.
 \end{lstlisting}
 \cite{rfc:udplite}
 
-Dieser unterscheidet sich von dem UDP-Header in der Hinsicht, dass
+Dieser unterscheidet sich von dem UDP-Header nur in der Hinsicht, dass
 das Length-Feld mit einem Cecksum-Coverage-Feld ausgestattet wurde.
 Dieses ist dazu da, um die Länge anzugeben, bis wohin die Prüfsumme
 berechnet wird. Dies war möglich, da die Information über die Länge
-des Pakets aus IP-Paketen entnommen werden kann.
+des Pakets aus IP-Paketen entnommen werden kann.\\
 
 \subsection{Beschreibung der Felder der PDU}
 
 Das Source- und Destination-Port-Feld sind dem von UDP gleich, wobei
-das Checksum-Coverage-Feld die Länge in Oketetten angibt, die von
+das Checksum-Coverage-Feld die Länge in Bit-Oketetten angibt, die von
 der Prüfsumme einbezogen werden. Hierbei wird ab dem ersten Oktett
-mit dem Zählen angefangen. 
+mit dem Zählen angefangen.\\
 
 Der Header muss dabei immer mit einer Prüfsumme gesichert werden.
 Eine Prüfsumme von 0 bedeutet dabei, dass das gesamte Paket in die
-Prüfsumme einbezogen wird. Die Prüfsumme des UDP-Header muss 0 oder
+Prüfsumme einbezogen wird. Die Prüfsumme des UDP-Headers muss 0 oder
 mindestens 8 sein, was bedeutet, dass die 8 Bytes des Headers beinhaltet
 sein müssen. Ein Paket mit einer Prüfsummenlänge zwischen 1 und 7 muss
-beim Empfänger verworfen werden, da dieses die Bedingung nicht erfüllt.
-Das berechnete Prüfsummenfeld muss einen Preuso-Header enthalten welcher
-auf IP basiert. UDP-Lite Pakete die eine gößere Prüfsummenlänge als
-der IP-Header annehmen kann müssen ebenfalls verworfen werden.
+beim Empfänger verworfen werden, da dieses die Bedingung der Sicherung des Headers nicht erfüllt.
+Das berechnete Prüfsummenfeld muss den Pseudo-Header von IP enthalten.
+Zusätzlich müssen UDP-Lite Pakete, die eine gößere Prüfsummenlänge als
+der IP-Header annehmen, ebenfalls verworfen werden. Wäre dies nicht der Fall,
+könnte die Länge des UDP-Lite-Pakets nict festgestellt werden.\\
 
 Da das Prüfsummenfeld ein 16-Bit-Komplement-Einerkomplement der Summe
 des Einerkomplements des Pseudo-Headers darstellt, muss das UDP-Lite-Paket
