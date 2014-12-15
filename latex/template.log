@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  15 DEC 2014 20:52
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.10.27)  15 DEC 2014 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -376,39 +376,39 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-Overfull \hbox (1.26794pt too wide) in paragraph at lines 161--162
+Overfull \hbox (1.26794pt too wide) in paragraph at lines 162--163
 \T1/aer/m/n/9 H.4 [\T1/aer/bx/n/9 Information Sys-tems Ap-pli-ca-tions\T1/aer/m
 /n/9 ]: Mis-cel-la-neous;
  []
 
-LaTeX Font Info:    Try loading font information for T1+aett on input line 176.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 177.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (6.33394pt too wide) in paragraph at lines 184--190
+Overfull \hbox (6.33394pt too wide) in paragraph at lines 185--191
 \T1/aer/m/n/9 Pay-load zu be-han-deln und nüt-zliche In-for-ma-tio-nen aus dies
 em
  []
 
 
-Overfull \hbox (2.50764pt too wide) in paragraph at lines 191--197
+Overfull \hbox (2.50764pt too wide) in paragraph at lines 192--198
 []\T1/aer/m/n/9 In dem Teil, in welchem eine Fehlerüber-prü-fung stat-tfinden
  []
 
 
-Overfull \hbox (7.33336pt too wide) in paragraph at lines 191--197
+Overfull \hbox (7.33336pt too wide) in paragraph at lines 192--198
 \T1/aer/m/n/9 Pa-ram-e-ter des Pay-loads beim Empfänger richtig in-ter-pretiere
 n
  []
 
 
-Overfull \hbox (4.20163pt too wide) in paragraph at lines 210--217
+Overfull \hbox (4.20163pt too wide) in paragraph at lines 211--218
 \T1/aer/m/n/9 H.264 [ITU-H.264; H.264] MPEG-4 [ISO-14496] video codecs) 
  []
 
 
-Overfull \hbox (2.69612pt too wide) in paragraph at lines 218--223
+Overfull \hbox (2.69612pt too wide) in paragraph at lines 219--224
 \T1/aer/m/n/9 höhere Sicher-heit für sen-si-ble Daten gewährleis-ten, was durch
 
  []
@@ -419,78 +419,113 @@ Overfull \hbox (2.69612pt too wide) in paragraph at lines 218--223
 
 
 ]
-
-LaTeX Warning: Citation `rfc:udplite' on page \thepage  undefined on input line
- 249.
-
-
-Overfull \hbox (3.5608pt too wide) in paragraph at lines 251--256
+Overfull \hbox (3.5608pt too wide) in paragraph at lines 252--257
 \T1/aer/m/n/9 Hin-sicht, dass das Length-Feld mit einem Cecksum-Coverage-
  []
 
 
-Overfull \hbox (11.63364pt too wide) in paragraph at lines 259--263
+Overfull \hbox (11.63364pt too wide) in paragraph at lines 260--264
 \T1/aer/m/n/9 gle-ich, wobei das Checksum-Coverage-Feld die Länge in Oketet-
  []
 
 
-Overfull \hbox (10.91573pt too wide) in paragraph at lines 264--273
+Overfull \hbox (10.91573pt too wide) in paragraph at lines 265--274
 []\T1/aer/m/n/9 Der Header muss dabei im-mer mit einer Prüf-summe gesichert
  []
 
 
-Overfull \hbox (33.5413pt too wide) in paragraph at lines 274--281
+Overfull \hbox (33.5413pt too wide) in paragraph at lines 275--282
 []\T1/aer/m/n/9 Da das Prüf-sum-men-feld ein 16-Bit-Komplement-Einerkomplement
  []
 
 
-Overfull \hbox (15.29803pt too wide) in paragraph at lines 274--281
+Overfull \hbox (15.29803pt too wide) in paragraph at lines 275--282
 \T1/aer/m/n/9 der Summe des Ein-erkom-ple-ments des Pseudo-Headers darstellt,
  []
 
 
-Overfull \hbox (9.7815pt too wide) in paragraph at lines 282--287
+Overfull \hbox (9.7815pt too wide) in paragraph at lines 283--288
 []\T1/aer/m/n/9 Da manche An-wen-dun-gen die UDP-Lite be-nutzen möglicher-
  []
 
 
-Overfull \hbox (4.13776pt too wide) in paragraph at lines 282--287
+Overfull \hbox (4.13776pt too wide) in paragraph at lines 283--288
 \T1/aer/m/n/9 nicht mit ein-beziehen zu müssen. Dadurch wird sichergestellt,
  []
 
 
-Overfull \hbox (6.31598pt too wide) in paragraph at lines 310--319
+Overfull \hbox (6.31598pt too wide) in paragraph at lines 311--320
 \T1/aer/m/n/9 beim Sender sollen An-wen-dun-gen die fehler-tol-er-ant sind UDP-
 
  []
 
 
-Overfull \hbox (3.26378pt too wide) in paragraph at lines 320--327
+Overfull \hbox (3.26378pt too wide) in paragraph at lines 321--328
 \T1/aer/m/n/9 nah-men der Fehler in einem UDP-Lite-Paket machen, solange
  []
 
 
-Overfull \hbox (14.42526pt too wide) in paragraph at lines 351--362
+Overfull \hbox (14.42526pt too wide) in paragraph at lines 352--363
 []\T1/aer/m/n/9 Frames die UDP-Lite-Pakete en-thal-ten dür-fen von niedrigeren
  []
 
 
-Overfull \hbox (1.40053pt too wide) in paragraph at lines 351--362
+Overfull \hbox (1.40053pt too wide) in paragraph at lines 352--363
 \T1/aer/m/n/9 Das Prüf-sum-men-län-gen-feld kön-nte für Verbindun-gen, welche
  []
 
 [2]
-Overfull \hbox (2.93324pt too wide) in paragraph at lines 381--389
+Overfull \hbox (7.99033pt too wide) in paragraph at lines 377--382
+\T1/aer/m/n/9 nutzen mit der Eigen-schaft das ganze Paket mit einer Fehlerko-
+ []
+
+
+Overfull \hbox (8.20439pt too wide) in paragraph at lines 383--389
+\T1/aer/m/n/9 genutzt wird. Ein Empfänger, welcher das UDP-Lite-Protokoll
+ []
+
+
+Overfull \hbox (7.8987pt too wide) in paragraph at lines 394--400
+\T1/aer/m/n/9 fen wird und UDP-Pakete, welche nur teil-weise den IP-Payload
+ []
+
+
+Overfull \hbox (7.02533pt too wide) in paragraph at lines 394--400
+\T1/aer/m/n/9 füllen, kön-nen nicht an UDP-Lite-Anwendungen weit-ergeleitet
+ []
+
+
+Overfull \hbox (1.96025pt too wide) in paragraph at lines 394--400
+\T1/aer/m/n/9 wer-den. Das Prob-lem dabei wäre die Nicht-Benachrichtigung
+ []
+
+
+Overfull \hbox (3.3552pt too wide) in paragraph at lines 401--404
+[]\T1/aer/m/n/9 Explizite Nutzung der Sig-nal-isierung in-ner-halb des Pay-
+ []
+
+
+Overfull \hbox (1.89754pt too wide) in paragraph at lines 401--404
+\T1/aer/m/n/9 dem Sender das Erken-nen der UDP-Lite-Unterstützung
+ []
+
+
+Overfull \hbox (13.69427pt too wide) in paragraph at lines 409--411
+[]\T1/aer/m/n/9 Da je-doch UDP-Lite eine eigene Iden-ti-fika-tion be-sitzt, müs
+sen
+ []
+
+
+Overfull \hbox (2.93324pt too wide) in paragraph at lines 423--431
 []\T1/aer/m/n/9 ------------------------------------------------------------- \
 T1/aett/m/n/9 \sec-tion []
  []
 
-
-Overfull \hbox (1.41365pt too wide) in paragraph at lines 503--510
+[3]
+Overfull \hbox (1.41365pt too wide) in paragraph at lines 545--552
  [][] 
  []
 
-[3]
 Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    date: 2013-05-18 03:31:02
 (epstopdf)                    size: 155104 bytes
@@ -499,13 +534,13 @@ Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    size: 4243 bytes
 (epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
 ly.eps>
-(epstopdf)             \includegraphics on input line 550.
+(epstopdf)             \includegraphics on input line 592.
 Package epstopdf Info: Output file is already uptodate.
- <fly-eps-converted-to.pdf, id=30, 34.1275pt x 32.12pt>
+<fly-eps-converted-to.pdf, id=30, 34.1275pt x 32.12pt>
 File: fly-eps-converted-to.pdf Graphic file (type pdf)
 
 <use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 550.
+Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 592.
 (pdftex.def)             Requested size: 34.1274pt x 32.1199pt.
 Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    date: 2013-05-18 03:31:02
@@ -515,16 +550,16 @@ Package epstopdf Info: Source file: <fly.eps>
 (epstopdf)                    size: 4243 bytes
 (epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
 ly.eps>
-(epstopdf)             \includegraphics on input line 556.
+(epstopdf)             \includegraphics on input line 598.
 Package epstopdf Info: Output file is already uptodate.
 File: fly-eps-converted-to.pdf Graphic file (type pdf)
  <use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 556.
+Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 598.
 (pdftex.def)             Requested size: 72.27492pt x 72.27565pt.
 
 
 LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 558.
+(Font)              using `T1/aett/m/n' instead on input line 600.
 
 Package epstopdf Info: Source file: <flies.eps>
 (epstopdf)                    date: 2013-05-18 03:31:02
@@ -534,26 +569,27 @@ Package epstopdf Info: Source file: <flies.eps>
 (epstopdf)                    size: 9687 bytes
 (epstopdf)             Command: <repstopdf --outfile=flies-eps-converted-to.pdf
  flies.eps>
-(epstopdf)             \includegraphics on input line 571.
+(epstopdf)             \includegraphics on input line 613.
 Package epstopdf Info: Output file is already uptodate.
 <flies-eps-converted-to.pdf, id=31, 307.1475pt x 114.4275pt>
 File: flies-eps-converted-to.pdf Graphic file (type pdf)
 
 <use flies-eps-converted-to.pdf>
-Package pdftex.def Info: flies-eps-converted-to.pdf used on input line 571.
+Package pdftex.def Info: flies-eps-converted-to.pdf used on input line 613.
 (pdftex.def)             Requested size: 307.14674pt x 114.42722pt.
 \c@theorem=\count126
 \c@definition=\count127
-
-Overfull \hbox (15.60826pt too wide) detected at line 639
+ [4 <./fly-eps-converted-to.pdf>]
+Overfull \hbox (15.60826pt too wide) detected at line 681
 \OML/cmm/m/it/9 l \OT1/cmr/m/n/9 = [] \OML/cmm/m/it/9 f\OT1/cmr/m/n/9 (\OML/cmm
 /m/it/9 x\OT1/cmr/m/n/9 ) = [] [] = [] \OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cm
 m/m/it/9 x\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9 ^^A [] [] \OT1/cmr/m/n/9 = 0 \OMS/cm
 sy/m/n/9 ^^A \OML/cmm/m/it/9 L \OT1/cmr/m/n/9 = 0\OML/cmm/m/it/9 ;
  []
 
-(./template.bbl [4 <./fly-eps-converted-to.pdf>]) [5 <./flies-eps-converted-to.
-pdf>] (./template.aux)
+(./template.bbl) [5 <./flies-eps-converted-to.pdf>] [6
+
+] (./template.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -561,7 +597,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  5904 strings out of 493304
  75345 string characters out of 6139870
- 195005 words of memory out of 5000000
+ 196005 words of memory out of 5000000
  9211 multiletter control sequences out of 15000+600000
  65304 words of font info for 91 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -584,10 +620,10 @@ nts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (5 pages, 240261 bytes).
+Output written on template.pdf (6 pages, 243480 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

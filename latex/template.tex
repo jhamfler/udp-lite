@@ -150,6 +150,7 @@ Johannes Hamfler\\
 \maketitle
 \begin{abstract}
 In diesem Dokument wird das Leightweight User Datagram Protokoll (UDP-Lite) beschrieben, welches ähnlich UDP ist. Der Focus dieses Dokuments liegt in der Beschreibung der Vorteile, die UDP-Lite gegenüber UDP aufweisen kann. Des Weiteren wird das Protokoll in das ISO OSI-Referenzmodell eingeordnet und die Auswirkungen auf andere Schichten in diesem beschrieben.
+Dieses Dokument orientiert sich stark am RFC.
 
 ------------------------------
  \LaTeX\ {\em alternate} \textit{bla}
@@ -356,7 +357,7 @@ könnte für Verbindungen, welche partielle Fehlererkennung ermöglichen dafür 
 niedrigeren Schichten mitzuteilen,
 in welchen Bereichen Fehler auftreten dürfen. Da der sensible
 Teil des UDP-Lite-Pakets zwischen dem ersten Oktet des IP-Headers
-und dem letzten Oktet liegt, welcher vom Prüfsummenlängenfeld
+und dem letzten Oktett liegt, welcher vom Prüfsummenlängenfeld
 bekannt gegeben wird, kann der sensible Teil in der gleichen Weise
 behandelt werden, wie ein UDP-Paket.
 
@@ -369,6 +370,47 @@ Verbesserung erwirken kann, wenn in Schicht 2 des OSI-Referenzmodells
 die Partielle Prüfsumme und die Prüfsummenlänge von UDP-Lite genutzt wird.
 Dies würde seine Wirkung jedoch erst in Fehleranfälligen
 Umgebungen entfalten.
+
+
+\subsection{Kompatibilität mit UDP}
+
+Da UDP und UDP-Lite eine ähnliche Syntax und Semantik hat,
+können Anwendungen UDP-Lite anstatt UDP nutzen mit der
+Eigenschaft das ganze Paket mit einer Fehlerkorrektur zu
+sichern. Des Weiteren sind durch die Ähnlichkeit nur geringe
+Änderungen an Anwendungen vorzunehmen, um UDP-Lite zu nutzen.
+
+UDP-Lite hat ein eigene IP-Protokoll-Identifikation (136),
+welche es einem Empfänger erlaubt ob UDP-Lite oder UDP genutzt wird.
+Ein Empfänger, welcher das UDP-Lite-Protokoll nicht kennt wird ein
+ICMP-Paket mit einer Fehlernachricht zurück senden.
+Damit kann festgestellt werden, ob anderen Systemen UDP-Lite bekannt ist.
+Diese Nachrichten können folgende sein:
+\begin{itemize}
+\item ICMP "Protocol Unreachable"
+\item ICMPv6 "Payload Type Unknown"
+\end{itemize}
+
+Ein Problem würde bei der Verwendung einer gleichen UDP-Identifikation
+enstehen, da ein UDP-Lite-Payload mit einer partiellen Prüfsumme
+von UDP-Anwendungen verworfen wird und UDP-Pakete, welche nur teilweise
+den IP-Payload füllen, können nicht an UDP-Lite-Anwendungen weitergeleitet werden.
+Das Problem dabei wäre die Nicht-Benachrichtigung des Senders,
+welches durch folgende Maßnahmen laut dem RFC eingedämmt werden könnte:
+\begin{itemize}
+\item Explizite Nutzung der Signalisierung innerhalb des Payloads
+		ohne die partielle Prüfsumme zu verwenden, um dem Sender das
+		Erkennen der UDP-Lite-Unterstützung zu ermöglichen
+\item Nutzung eines anderen Protokolls zur Signalisierung,
+		wie zum Beispiel SIP, damit erkannt werden kann,
+		ob der Empfänger UDP-Lite nutzen kann
+\end{itemize}
+
+Da jedoch UDP-Lite eine eigene Identifikation besitzt,
+müssen diese Varianten nicht benutzt werden.
+
+
+\subsection{Sicherheitsbetrachtungen}
 
 
 

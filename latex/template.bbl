@@ -1,5 +1,8 @@
 \begin{thebibliography}{1}
 
+\bibitem{rfc:udplite}
+{\em RFC 3828}.
+
 \bibitem{bowman:reasoning}
 M.~Bowman, S.~K. Debray, and L.~L. Peterson.
 \newblock Reasoning about naming systems.
