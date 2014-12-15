@@ -104,9 +104,9 @@ Johannes Hamfler\\
        \email{johannes.hamfler@hft-leipzig.de}
 % 2nd. author
 \alignauthor
-2nd author
-       \affaddr{affiliation}\\
-       \email{e-mail}
+#2nd author
+#       \affaddr{affiliation}\\
+#       \email{e-mail}
 % 3rd. author
 % \alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
 % one who did all the really hard work.}\\
@@ -188,13 +188,47 @@ be used in your very last run of \LaTeX\ to ensure
 balanced column heights on the last page.}, the \LaTeX\ document
 class file handles all of this for you.
 
-The remainder of this document is concerned with showing, in
-the context of an ``actual'' document, the \LaTeX\ commands
-specifically available for denoting the structure of a
-proceedings paper, rather than with giving rigorous descriptions
-or explanations of such commands.
 
-\section{The {\secit Body} of The Paper}
+%#############################################
+\section{Protokollübersicht {\secit UDP-Lite}}
+
+In RFC 3828 findet sich ..
+
+Da manche Codecs die Fähigkeit besitzen 
+beschädigten Payload zu behandeln und nützliche Informationen
+aus diesem zu extrahieren, wurde bei UDP-Lite ein Paket in
+zwei Teile aufgegliedert werden. Ein Teil kann mit einem Fehlerkorrekturwert
+überprüft werden, um die Integrität der darin enthaltenen Daten zu sichern,
+ein anderer Teil kann ohne Prüfsumme vorhanden sein.
+
+In dem Teil, in welchem
+eine Fehlerüberprüfung stattfinden soll, werden üblicherweise Steuerinformationen
+übertragen, welche unbedingt fehlerfrei vorhanden sein müssen, 
+um die Parameter des Payloads beim Empfänger richtig interpretieren zu können.
+Sollte der Payload in diesem Teil beschädigt sein, wird das Paket beim Empfänger in der
+Transportschicht verworfen.
+
+Der andere Teil des Payloads, welcher beim klassischen UDP üblicherweise Daten enthält,
+welche nicht zwingend neu übertragen werden müssen, kann ohne Fehlerkorrektur übertragen werden,
+damit die darüber liegenden Schichten auch beschädigte Daten bearbeiten können
+um aus diesen ebenfalls nützliche Informationen für eine Anwendung zu extrahieren.
+Da in diesem Teil nicht überprüft wird ob Fehler vorhanden sind,
+wird der Payload nicht für die Entscheidung der Weiterleitung an höhere Schichten verwendet.
+
+Wird eine Prüfsumme über das gesamte Paket angewandt, so ist UDP-Lite semantisch identisch
+zu UDP.
+
+Im RFC werden folgende Codecs als Beispiele genannt, welche mit UDP-Lite
+eine Verbesserung der decodierten Daten erreichen können:
+AMR speech codec [RFC-3267]
+Internet Low Bit Rate Codec [ILBRC]
+error resilient H.263+ [ITU-H.263]
+H.264 [ITU-H.264; H.264]
+MPEG-4 [ISO-14496] video codecs)
+
+
+
+
 Typically, the body of a paper is organized
 into a hierarchical structure, with numbered or unnumbered
 headings for sections, subsections, sub-subsections, and even
