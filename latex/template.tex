@@ -161,13 +161,15 @@ In diesem Dokument wird das Leightweight User Datagram Protokoll (UDP-Lite) besc
 
 \terms{Theory}
 
-\keywords{ACM proceedings, \LaTeX, text tagging}
+\keywords{UDP-Lite}
 
 \section{Einleitung}
 
-Dieses Dokument beschreibt das Lightweight User Datagram Protokoll (UDP-Lite), welches eine Erweitung von UDP (RFC 768) darstellt. Es wird besonderer Bezug auf die Vorteile genommen, die UDP-Lite gegenüber UDP hat. Des Weiteren findet eine Einordnung in das ISO OSI-Referenzmodell statt und es werden die Auswirkungen beschrieben, die das Protokoll auf andere OSI-Schichten haben kann.
+UDP, welches im RFC 768 beschrieben ist wurde jahrelang als verbindungsloses Protokoll verwendet und ist weit verbreitet. Ach heute hat dieses große Bedeutung für Sprachdienste, Videokommunikation und Echtzeitübertragung. Der Vorteil des Protokolls gegenüber TCP liegt vor allem bei der Sprachkommunikation darin, dass verlorene und fehlerhafte Datenpakete nicht erneut übertragen werden, da diese nach wenigen Millisekunden schon nicht mehr von Bedeutung sind. UDP-Lite versucht das Problem der fehlerhaften Pakete, welche beim Empfänger gelöscht werden, zu mindern, indem die Option besteht fehlerhafte Pakete dennoch zu verwenden und an höhere Schichten weiterleiten zu können. Bei Sprachdiensten hätte dies den Vorteil, dass der in einer höheren Schicht angesiedelte Codec die korrekten Bits auf eine bestimmte weise verarbeitet, so dass diese nützlich für die Anwendung sind. Fehlerhafte Bits könnten für den Codec ebenfalls einen Nutzen darstellen, so dass UDP-Lite in diesem Zusammenhang einen Vorteil darstellen würde.
 
 
+
+-----------------------------------------
 The \textit{proceedings} are the records of a conference.
 ACM seeks to give these conference by-products a uniform,
 high-quality appearance.  To do this, ACM has some rigid
