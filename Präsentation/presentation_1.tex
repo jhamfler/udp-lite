@@ -24,15 +24,15 @@
 % of all the themes, uncomment each in turn to see what they look like.
 
 %\usetheme{default}
-\usetheme{AnnArbor}
+% % %\usetheme{AnnArbor}
 %\usetheme{Antibes}
 %\usetheme{Bergen}
 %\usetheme{Berkeley}
-%\usetheme{Berlin}
+% %\usetheme{Berlin}
 %\usetheme{Boadilla}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
+% %\usetheme{CambridgeUS}
+% %\usetheme{Copenhagen}
+\usetheme{Darmstadt}
 %\usetheme{Dresden}
 %\usetheme{Frankfurt}
 %\usetheme{Goettingen}
@@ -59,22 +59,23 @@
 %\usecolortheme{beaver}
 %\usecolortheme{beetle}
 %\usecolortheme{crane}
-\usecolortheme{dolphin}
+%%%\usecolortheme{dolphin}
 %\usecolortheme{dove}
 %\usecolortheme{fly}
 %\usecolortheme{lily}
 %\usecolortheme{orchid}
 %\usecolortheme{rose}
 %\usecolortheme{seagull}
-%\usecolortheme{seahorse}
-%\usecolortheme{whale}
-%\usecolortheme{wolverine}
+%%%\usecolortheme{seahorse}
+% %\usecolortheme{whale}
+% %%\usecolortheme{wolverine}
 
 %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
 %\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
 %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
+\usepackage{verbatim} % für Mehrzeilen-Kommentare
 \usepackage[english, ngerman]{babel} % deutsche sprache
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
@@ -140,9 +141,8 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
 %------------------------------------------------
 %------------------------------------------------
 
-
-\begin{frame}
 \section{Einleitung}
+\begin{frame}
 %\frametitle{Einleitung}
 \begin{itemize}
 \item UDP: RFC 768
@@ -150,7 +150,7 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
 	\item verbindungsloses Protokoll
 	\item Sprachdienste, Videokommunikation und Echtzeitübertragung
 	\item verlorene und fehlerhafte Datenpakete werden nicht erneut übertragen
-	\item Prüfsumme muss gesetzt sein
+	\item Prüfsumme nicht gesetzt oder über gesamtes Paket
 	\end{itemize}
 \end{itemize}
 \par
@@ -191,7 +191,7 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
 	\end{itemize}
 \item Teil ohne Prüfsumme
 	\begin{itemize}
-	\item unkritische Informationen wie Sprachdaten
+	\item unkritische Informationen wie z.B. Sprachdaten
 	\item wenn Fehler vorhanden sind wird das Paket nicht verworfen
 	\end{itemize}
 \item Prüfsumme ist über das gesamte Paket möglich
@@ -237,10 +237,12 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
     +-----------------------------------+
 \end{lstlisting}
 \begin{itemize}
-\item Untersied zu UDP
+\item Unterschied zu UDP
 	\begin{itemize}
 	\item Length-Feld wurde zum Cecksum-Coverage-Feld
-	\item gibt Länge an, bis wohin die Prüfsumme berechnet wird
+		\begin{itemize}
+		\item gibt Länge an, bis wohin die Prüfsumme berechnet wird
+		\end{itemize}
 	\item Länge des Pakets wird aus IP-Paket entnommen
 	\end{itemize}
 \end{itemize}
@@ -271,7 +273,7 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
 	\item Prüfsummenlänge
 		\begin{itemize}
 		\item ein Vielfaches von 2 Byte
-		\item Paket ist notfalls ist mit Nullen aufzufüllen
+		\item Paket ist notfalls mit Nullen aufzufüllen
 		\end{itemize}
 \end{itemize}
 \end{frame}
@@ -311,79 +313,54 @@ zu niedrigeren Schichten:
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-\subsection{Betrachtung der niedrigeren Schichten}
-
+\subsection{Sicherheitsbetrachtungen}
 \begin{frame}
 \begin{itemize}
-
-\item 
-\item 
+\item IPv6 verlangt eine Fehlerkorrektur für UDP
+\end{itemize}
+\begin{itemize}
+\item IPSec mit ESP bringt mit UDP-Lite keinen Vorteil
+	\begin{itemize}
+	\item keine Erkennung des Payloads
+	\end{itemize}
+\end{itemize}
+\begin{itemize}
+\item Lösung
+	\begin{itemize}
+	\item Verschlüsselung auf Transportschicht
+	\item Stromchiffren anstatt Blockchiffren
+		\begin{itemize}
+		\item Fehlerspreizung wird vermindert
+		\item vorhersagbare Manipulationen am Payload möglich
+		\end{itemize}
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
-Ein Problem würde bei der Verwendung einer gleichen UDP-Identifikation
-entstehen, da ein UDP-Lite-Payload mit einer partiellen Prüfsumme
-von UDP-Anwendungen verworfen wird und UDP-Pakete, welche nur teilweise
-den IP-Payload füllen, nicht an UDP-Lite-Anwendungen weitergeleitet werden können.
-Das Problem dabei wäre die fehlende Benachrichtigung an den Sender,
-welches durch folgende Maßnahmen laut dem RFC eingedämmt werden könnte:
-\begin{itemize}
-\item Explizite Nutzung der Signalisierung innerhalb des Payloads
-		ohne die partielle Prüfsumme zu verwenden, um dem Sender das
-		Erkennen der UDP-Lite-Unterstützung zu ermöglichen
-\item Nutzung eines anderen Protokolls zur Signalisierung,
-		wie zum Beispiel SIP, damit erkannt werden kann,
-		ob der Empfänger UDP-Lite nutzen kann
-\end{itemize}
-
-Da jedoch UDP-Lite eine eigene Identifikation besitzt,
-müssen diese Varianten nicht verwendet werden.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
-
-\begin{frame}
-\frametitle{Bullet Points}
-\begin{itemize}
-\item 
-\item 
-\item 
-\item 
-\item 
-\end{itemize}
-\end{frame}
-
-
-
-
-\subsection{Der Pseudo-Header}
-\subsection{Die Anwendungsschnittstelle}
-\subsection{Die IP-Schnittstelle}
-\subsection{IP-Jumbo-PDUs}
-\subsection{Betrachtung der niedrigeren Schichten}
-\subsection{Kompatibilität mit UDP}
-\subsection{Sicherheitsbetrachtungen}
-\subsection{IANA Protokollnummer}
 \section{Zusammenfassung}
 
-
-
-
-%------------------------------------------------
-
 \begin{frame}
-\frametitle{Bullet Points}
+
 \begin{itemize}
-\item 
-\item 
-\item 
-\item 
-\item 
+\item nur geringe Änderungen an Anwendungen nötig
 \end{itemize}
+
+\begin{itemize}
+\item zur Nutzung wie UDP muss Prüfsumme über gesamtes Paket angewandt werden
+\end{itemize}
+
+\begin{itemize}
+\item IP-Protokoll-ID 136 zur Erkennung des Payloads nutzen
+\end{itemize}
+
 \end{frame}
 
-%------------------------------------------------
 
+
+\begin{comment}
 \begin{frame}
 \frametitle{Blocks of Highlighted Text}
 \begin{block}{Block 1}
@@ -400,6 +377,7 @@ Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenati
 \end{frame}
 
 %------------------------------------------------
+
 
 \begin{frame}
 \frametitle{Multiple Columns}
@@ -420,7 +398,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ul
 \end{frame}
 
 %------------------------------------------------
-\section{Second Section}
+%\section{Second Section}
 %------------------------------------------------
 
 \begin{frame}
@@ -483,14 +461,16 @@ This statement requires citation \cite{p1}.
 \end{frame}
 
 %------------------------------------------------
+\end{comment}
+
 
 \begin{frame}
-\frametitle{References}
+\frametitle{Referenzen}
 \footnotesize{
 \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
-\bibitem[Smith, 2012]{p1} John Smith (2012)
-\newblock Title of the publication
-\newblock \emph{Journal Name} 12(3), 45 -- 678.
+\bibitem[RFC]{p1} RFC 3828 (Juli 2004), 
+\newblock The Lightweight User Datagram Protocol (UDP-Lite)
+\newblock \emph{http://tools.ietf.org/html/rfc3828}
 \end{thebibliography}
 }
 \end{frame}
@@ -498,7 +478,10 @@ This statement requires citation \cite{p1}.
 %------------------------------------------------
 
 \begin{frame}
-\Huge{\centerline{The End}}
+\Huge{\centerline{Vielen Dank}}
+\Huge{\centerline{für eure Aufmerksamkeit.}}
+\Huge{\centerline{}}
+\Huge{\centerline{Sind Fragen offen?}}
 \end{frame}
 
 %----------------------------------------------------------------------------------------

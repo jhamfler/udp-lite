@@ -9,8 +9,8 @@
 \headcommand {\slideentry {1}{0}{3}{3/3}{}{0}}
 \headcommand {\beamer@framepages {3}{3}}
 \headcommand {\sectionentry {2}{Protokollspezifikation}{4}{Protokollspezifikation}{0}}
-\headcommand {\beamer@sectionpages {1}{3}}
-\headcommand {\beamer@subsectionpages {1}{3}}
+\headcommand {\beamer@sectionpages {3}{3}}
+\headcommand {\beamer@subsectionpages {3}{3}}
 \headcommand {\beamer@subsectionentry {0}{2}{1}{4}{Protokollformat}}\headcommand {\beamer@subsectionpages {4}{3}}
 \headcommand {\slideentry {2}{1}{1}{4/4}{Protokollformat}{0}}
 \headcommand {\beamer@framepages {4}{4}}
@@ -24,47 +24,20 @@
 \headcommand {\beamer@subsectionentry {0}{2}{3}{8}{Anwendungsschnittstelle}}\headcommand {\beamer@subsectionpages {7}{7}}
 \headcommand {\slideentry {2}{3}{1}{8/8}{Anwendungsschnittstelle}{0}}
 \headcommand {\beamer@framepages {8}{8}}
-\headcommand {\beamer@subsectionentry {0}{2}{4}{9}{Betrachtung der niedrigeren Schichten}}\headcommand {\beamer@subsectionpages {8}{8}}
-\headcommand {\slideentry {2}{4}{1}{9/9}{Betrachtung der niedrigeren Schichten}{0}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{9}{Sicherheitsbetrachtungen}}\headcommand {\beamer@subsectionpages {8}{8}}
+\headcommand {\slideentry {2}{4}{1}{9/9}{Sicherheitsbetrachtungen}{0}}
 \headcommand {\beamer@framepages {9}{9}}
-\headcommand {\slideentry {2}{4}{2}{10/10}{Betrachtung der niedrigeren Schichten}{0}}
+\headcommand {\sectionentry {3}{Zusammenfassung}{10}{Zusammenfassung}{0}}
+\headcommand {\beamer@sectionpages {4}{9}}
+\headcommand {\beamer@subsectionpages {9}{9}}
+\headcommand {\slideentry {3}{0}{2}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\beamer@subsectionentry {0}{2}{5}{12}{Der Pseudo-Header}}\headcommand {\beamer@subsectionpages {9}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{6}{12}{Die Anwendungsschnittstelle}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{7}{12}{Die IP-Schnittstelle}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{8}{12}{IP-Jumbo-PDUs}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{9}{12}{Betrachtung der niedrigeren Schichten}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{10}{12}{Kompatibilit\IeC {\"a}t mit UDP}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{11}{12}{Sicherheitsbetrachtungen}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\beamer@subsectionentry {0}{2}{12}{12}{IANA Protokollnummer}}\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\sectionentry {3}{Zusammenfassung}{12}{Zusammenfassung}{0}}
-\headcommand {\beamer@sectionpages {4}{11}}
-\headcommand {\beamer@subsectionpages {12}{11}}
-\headcommand {\slideentry {3}{0}{1}{12/12}{}{0}}
+\headcommand {\slideentry {3}{0}{3}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\slideentry {3}{0}{4}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\slideentry {3}{0}{2}{13/13}{}{0}}
-\headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {3}{0}{3}{14/14}{}{0}}
-\headcommand {\beamer@framepages {14}{14}}
-\headcommand {\sectionentry {4}{Second Section}{15}{Second Section}{0}}
-\headcommand {\beamer@sectionpages {12}{14}}
-\headcommand {\beamer@subsectionpages {12}{14}}
-\headcommand {\slideentry {4}{0}{4}{15/15}{}{0}}
-\headcommand {\beamer@framepages {15}{15}}
-\headcommand {\slideentry {4}{0}{5}{16/16}{}{0}}
-\headcommand {\beamer@framepages {16}{16}}
-\headcommand {\slideentry {4}{0}{6}{17/17}{}{0}}
-\headcommand {\beamer@framepages {17}{17}}
-\headcommand {\slideentry {4}{0}{7}{18/18}{}{0}}
-\headcommand {\beamer@framepages {18}{18}}
-\headcommand {\slideentry {4}{0}{8}{19/19}{}{0}}
-\headcommand {\beamer@framepages {19}{19}}
-\headcommand {\slideentry {4}{0}{9}{20/20}{}{0}}
-\headcommand {\beamer@framepages {20}{20}}
-\headcommand {\slideentry {4}{0}{10}{21/21}{}{0}}
-\headcommand {\beamer@framepages {21}{21}}
-\headcommand {\beamer@partpages {1}{21}}
-\headcommand {\beamer@subsectionpages {15}{21}}
-\headcommand {\beamer@sectionpages {15}{21}}
-\headcommand {\beamer@documentpages {21}}
-\headcommand {\def \inserttotalframenumber {20}}
+\headcommand {\beamer@partpages {1}{12}}
+\headcommand {\beamer@subsectionpages {10}{12}}
+\headcommand {\beamer@sectionpages {10}{12}}
+\headcommand {\beamer@documentpages {12}}
+\headcommand {\def \inserttotalframenumber {12}}

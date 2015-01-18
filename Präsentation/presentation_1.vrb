@@ -1,4 +1,27 @@
-\frametitle{Citation}
-An example of the \verb|\cite| command to cite within the presentation:\\~
-
-This statement requires citation \cite{p1}.
+\begin{itemize}
+\item UDP-Lite-Header
+\end{itemize}
+\begin{lstlisting}[linewidth=0.90\textwidth=small]
+     0              15 16             31
+    +--------+--------+--------+--------+
+    |     Source      |   Destination   |
+    |      Port       |      Port       |
+    +--------+--------+--------+--------+
+    |    Checksum     |                 |
+    |    Coverage     |    Checksum     |
+    +--------+--------+--------+--------+
+    |                                   |
+    :              Payload              :
+    |                                   |
+    +-----------------------------------+
+\end{lstlisting}
+\begin{itemize}
+\item Unterschied zu UDP
+\begin{itemize}
+\item Length-Feld wurde zum Cecksum-Coverage-Feld
+\begin{itemize}
+\item gibt Länge an, bis wohin die Prüfsumme berechnet wird
+\end{itemize}
+\item Länge des Pakets wird aus IP-Paket entnommen
+\end{itemize}
+\end{itemize}
