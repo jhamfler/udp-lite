@@ -1,0 +1,34 @@
+%--------------------------------------------------------------------
+% Pakete
+%--------------------------------------------------------------------
+
+% KOMA-Script
+\usepackage[table]{xcolor}          % Erweitertes Farbpaket mit vielen Farbmodellen (notwenidig zur Farbdefinition)
+\usepackage{listings}               % Quellcode einbinden und formatieren
+\renewcommand{\lstlistlistingname}{Verzeichnis der Listings}
+\definecolor{darkgreen}{rgb}{0,.4,0}
+\definecolor{darkviolett}{rgb}{.4,0,.4}
+\newcommand{\listingswidth}{\textwidth-1cm}
+\lstset{
+    language=C,                  % oder  C++, Pascal, {[77]Fortran}, ...
+    numbers=left,                   % Position der Zeilennummerierung
+    firstnumber=auto,               % Erste  Zeilennummer
+    basicstyle=\ttfamily\small,     % Textgröße  des Standardtexts
+    keywordstyle=\ttfamily\color{darkviolett},    % Formattierung Schlüsselwörter
+    commentstyle=\ttfamily\color{darkgreen},       % Formattierung Kommentar
+    stringstyle=\ttfamily\color{blue},             % Formattierung Strings
+    %keywordstyle=\ttfamily\color{black},
+    %commentstyle=\ttfamily\color{black},
+    %stringstyle=\ttfamily\color{black},
+    numberstyle=\tiny,              % Textgröße der Zeilennummern
+    stepnumber=1,                   % Angezeigte Zeilennummern
+    numbersep=5pt,                  % Abstand zw. Zeilennummern und Code
+    aboveskip=15pt,                 % Abstand oberhalb des Codes
+    belowskip=11pt,                 % Abstand unterhalb des Codes
+    captionpos=b,                   % Position der Überschrift
+    linewidth=15.8cm,               % TODO \textwidth-2em
+    xleftmargin=10pt,               % Linke Einrückung
+    frame=single,                   % Rahmentyp
+    breaklines=true,                % Umbruch langer Zeilen
+    showstringspaces=false          % Spezielles Zeichen für Leerzeichen
+}

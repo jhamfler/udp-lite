@@ -1,0 +1,8 @@
+\begin{thebibliography}{1}
+
+\bibitem{rfc:udplite}
+N.~W. Group.
+\newblock The lightweight user datagram protocol (udp-lite).
+\newblock {\em RFC 3828}, Standards Track(3828):12, Juli 2004.
+
+\end{thebibliography}
