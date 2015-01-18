@@ -1,4 +1,18 @@
 \beamer@endinputifotherversion {3.24pt}
-\beamer@sectionintoc {1}{First Section}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Subsection Example}{3}{0}{1}
-\beamer@sectionintoc {2}{Second Section}{7}{0}{2}
+\select@language {ngerman}
+\beamer@sectionintoc {1}{Einleitung}{3}{0}{1}
+\beamer@sectionintoc {2}{Protokollspezifikation}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Protokollformat}{4}{0}{2}
+\beamer@subsectionintoc {2}{2}{Checksum-Coverage-Feld und Pr\IeC {\"u}fsumme}{7}{0}{2}
+\beamer@subsectionintoc {2}{3}{Anwendungsschnittstelle}{8}{0}{2}
+\beamer@subsectionintoc {2}{4}{Betrachtung der niedrigeren Schichten}{9}{0}{2}
+\beamer@subsectionintoc {2}{5}{Der Pseudo-Header}{12}{0}{2}
+\beamer@subsectionintoc {2}{6}{Die Anwendungsschnittstelle}{12}{0}{2}
+\beamer@subsectionintoc {2}{7}{Die IP-Schnittstelle}{12}{0}{2}
+\beamer@subsectionintoc {2}{8}{IP-Jumbo-PDUs}{12}{0}{2}
+\beamer@subsectionintoc {2}{9}{Betrachtung der niedrigeren Schichten}{12}{0}{2}
+\beamer@subsectionintoc {2}{10}{Kompatibilit\IeC {\"a}t mit UDP}{12}{0}{2}
+\beamer@subsectionintoc {2}{11}{Sicherheitsbetrachtungen}{12}{0}{2}
+\beamer@subsectionintoc {2}{12}{IANA Protokollnummer}{12}{0}{2}
+\beamer@sectionintoc {3}{Zusammenfassung}{12}{0}{3}
+\beamer@sectionintoc {4}{Second Section}{15}{0}{4}

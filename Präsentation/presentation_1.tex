@@ -24,7 +24,7 @@
 % of all the themes, uncomment each in turn to see what they look like.
 
 %\usetheme{default}
-%\usetheme{AnnArbor}
+\usetheme{AnnArbor}
 %\usetheme{Antibes}
 %\usetheme{Bergen}
 %\usetheme{Berkeley}
@@ -40,7 +40,7 @@
 %\usetheme{Ilmenau}
 %\usetheme{JuanLesPins}
 %\usetheme{Luebeck}
-\usetheme{Madrid}
+%\usetheme{Madrid}
 %\usetheme{Malmoe}
 %\usetheme{Marburg}
 %\usetheme{Montpellier}
@@ -59,7 +59,7 @@
 %\usecolortheme{beaver}
 %\usecolortheme{beetle}
 %\usecolortheme{crane}
-%\usecolortheme{dolphin}
+\usecolortheme{dolphin}
 %\usecolortheme{dove}
 %\usecolortheme{fly}
 %\usecolortheme{lily}
@@ -75,10 +75,38 @@
 
 %\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
-
+\usepackage[english, ngerman]{babel} % deutsche sprache
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[utf8x]{inputenc}
+\usepackage{listings}               % Quellcode einbinden und formatieren
+\renewcommand{\lstlistlistingname}{Verzeichnis der Listings}
+\definecolor{darkgreen}{rgb}{0,.4,0}
+\definecolor{darkviolett}{rgb}{.4,0,.4}
+\newcommand{\listingswidth}{\textwidth-1cm}
+\lstset{
+    language=C,                  % oder  C++, Pascal, {[77]Fortran}, ...
+    numbers=left,                   % Position der Zeilennummerierung
+    firstnumber=auto,               % Erste  Zeilennummer
+    basicstyle=\ttfamily\small,     % Textgröße  des Standardtexts
+    keywordstyle=\ttfamily\color{darkviolett},    % Formattierung Schlüsselwörter
+    commentstyle=\ttfamily\color{darkgreen},       % Formattierung Kommentar
+    stringstyle=\ttfamily\color{blue},             % Formattierung Strings
+    %keywordstyle=\ttfamily\color{black},
+    %commentstyle=\ttfamily\color{black},
+    %stringstyle=\ttfamily\color{black},
+    numberstyle=\tiny,              % Textgröße der Zeilennummern
+    stepnumber=1,                   % Angezeigte Zeilennummern
+    numbersep=5pt,                  % Abstand zw. Zeilennummern und Code
+    aboveskip=15pt,                 % Abstand oberhalb des Codes
+    belowskip=11pt,                 % Abstand unterhalb des Codes
+    captionpos=b,                   % Position der Überschrift
+    linewidth=15.8cm,               % TODO \textwidth-2em
+    xleftmargin=10pt,               % Linke Einrückung
+    frame=single,                   % Rahmentyp
+    breaklines=true,                % Umbruch langer Zeilen
+    showstringspaces=false          % Spezielles Zeichen für Leerzeichen
+}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -109,30 +137,248 @@ Hochschule für Telekommunikation Leipzig \\ % Your institution for the title pa
 %----------------------------------------------------------------------------------------
 %	PRESENTATION SLIDES
 %----------------------------------------------------------------------------------------
-
 %------------------------------------------------
-\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
 %------------------------------------------------
 
-\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
 
 \begin{frame}
-\frametitle{Paragraphs of Text}
-Sed iaculis dapibus gravida. Morbi sed tortor erat, nec interdum arcu. Sed id lorem lectus. Quisque viverra augue id sem ornare non aliquam nibh tristique. Aenean in ligula nisl. Nulla sed tellus ipsum. Donec vestibulum ligula non lorem vulputate fermentum accumsan neque mollis.\\~\\
-
-Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. Aliquam vel dui orci, a porta odio. Nullam id suscipit ipsum. Aenean lobortis commodo sem, ut commodo leo gravida vitae. Pellentesque vehicula ante iaculis arcu pretium rutrum eget sit amet purus. Integer ornare nulla quis neque ultrices lobortis. Vestibulum ultrices tincidunt libero, quis commodo erat ullamcorper id.
+\section{Einleitung}
+%\frametitle{Einleitung}
+\begin{itemize}
+\item UDP: RFC 768
+	\begin{itemize}
+	\item verbindungsloses Protokoll
+	\item Sprachdienste, Videokommunikation und Echtzeitübertragung
+	\item verlorene und fehlerhafte Datenpakete werden nicht erneut übertragen
+	\item Prüfsumme muss gesetzt sein
+	\end{itemize}
+\end{itemize}
+\par
+\begin{itemize}
+\item UDP-Lite: RFC 3828
+\item Option
+	\begin{itemize}
+	\item fehlerhafte Pakete an höhere Schichten weiterleiten
+	\end{itemize}
+\item Vorteil
+	\begin{itemize}
+	\item Codec verarbeitet korrekte Bits
+	\item nützlich für Anwendungen
+	\end{itemize}
+\end{itemize}
+\par
+\begin{itemize}
+\item OSI-Schicht: 4 - Transportschicht
+\item für Ausnutzung der Stärken sind höhere Schichten notwendig
+\end{itemize}
 \end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Protokollspezifikation}
+\subsection{Protokollformat}
+\begin{frame}
+\begin{itemize}
+\item Einteilung des Payloads
+	\begin{itemize}
+	\item ein Teil mit Fehlerkorrekturwert
+	\item ein Teil ohne Prüfsumme möglich
+	\end{itemize}
+\item Prüfsummenteil
+	\begin{itemize}
+	\item üblicherweise Steuerinformationen
+	\item wenn Beschädigt wird das Paket in Schicht 4 verworfen
+	\end{itemize}
+\item Teil ohne Prüfsumme
+	\begin{itemize}
+	\item unkritische Informationen wie Sprachdaten
+	\item wenn Fehler vorhanden sind wird das Paket nicht verworfen
+	\end{itemize}
+\item Prüfsumme ist über das gesamte Paket möglich
+	\begin{itemize}
+	\item semantisch gleich zu UDP
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{itemize}
+\item UDP-Lite kann Verbesserungen beim Decoder für folgende Codecs bieten
+	\begin{itemize}
+	\item AMR speech codec [RFC-3267]
+	\item Internet Low Bit Rate Codec [ILBRC]
+	\item error resilient H.263+ [ITU-H.263]
+	\item H.264 [ITU-H.264; H.264]
+	\item MPEG-4 [ISO-14496] video codecs)
+	\end{itemize}
+\item dynamische Umschaltung zwischen UDP- und UDP-Lite-Verhalten gewünscht
+\item Verbindungen sollten sich ihrer Fehleranfälligkeit bewusst sein
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\begin{itemize}
+\item UDP-Lite-Header
+\end{itemize}
+\begin{lstlisting}[linewidth=0.90\textwidth=small]
+     0              15 16             31
+    +--------+--------+--------+--------+
+    |     Source      |   Destination   |
+    |      Port       |      Port       |
+    +--------+--------+--------+--------+
+    |    Checksum     |                 |
+    |    Coverage     |    Checksum     |
+    +--------+--------+--------+--------+
+    |                                   |
+    :              Payload              :
+    |                                   |
+    +-----------------------------------+
+\end{lstlisting}
+\begin{itemize}
+\item Untersied zu UDP
+	\begin{itemize}
+	\item Length-Feld wurde zum Cecksum-Coverage-Feld
+	\item gibt Länge an, bis wohin die Prüfsumme berechnet wird
+	\item Länge des Pakets wird aus IP-Paket entnommen
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\subsection{Checksum-Coverage-Feld und Prüfsumme}
+\begin{frame}
+\begin{itemize}
+\item 8 Bit = 1 Byte = 1 Inkrement des Checksum-Coverage-Felds
+\item Anfang des Zählens beim 1. Oktett der PDU
+\item zugelassene Werte
+	\begin{itemize}
+	\item 0 -- Prüfsumme über das gesamte Paket anwenden
+	\item $ 8 $ bis maximale Länge eines IP-Pakets -- teilweise Prüfsumme möglich
+	\end{itemize}
+\item nicht zugelassene Werte
+	\begin{itemize}
+	\item 1 bis 7 -- Paket wird beim Empfänger verworfen
+	\end{itemize}
+\item Prüfsummenberechnung
+	\begin{enumerate}
+	\item Einerkomplement der zu prüfenden Informationen aus dem IP-Header
+	\item die Summe daraus
+	\item 16-Bit-Komplement
+	\end{enumerate}
+	\item Prüfsummenlänge
+		\begin{itemize}
+		\item ein Vielfaches von 2 Byte
+		\item Paket ist notfalls ist mit Nullen aufzufüllen
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\subsection{Anwendungsschnittstelle}
+\begin{frame}
+zu höheren Schichten:
+\begin{itemize}
+\item gleiche Funktionen wie bei UDP
+\item Standardfall
+	\begin{itemize}
+	\item UDP-Prüfsummenlänge imitieren
+	\end{itemize}
+\item Zusatzfunktion 
+	\begin{itemize}
+	\item Prüfsummenlänge an UDP-Lite zu übertragen
+	\item über System-Calls Fehlertoleranz mitteilen
+	\end{itemize}
+\item Anwendung kann durch Codecs besser Fehler beheben
+\end{itemize}
+
+zu niedrigeren Schichten:
+\begin{itemize}
+\item dürfen Pakete nicht verwerfen, außer bei Fehlern im kritischen Teil
+\item Checksum-Coverage-Feld sollte ausgelesen werden
+\end{itemize}
+\begin{itemize}
+\item Internet Protokoll
+	\begin{itemize}
+	\item Länge des IP-Payloads zur Größenberechnung
+	\item IP-Paket darf nicht mit Padding-Bytes aufgefüllt werden
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\subsection{Betrachtung der niedrigeren Schichten}
+
+\begin{frame}
+\begin{itemize}
+
+\item 
+\item 
+\end{itemize}
+\end{frame}
+
+Ein Problem würde bei der Verwendung einer gleichen UDP-Identifikation
+entstehen, da ein UDP-Lite-Payload mit einer partiellen Prüfsumme
+von UDP-Anwendungen verworfen wird und UDP-Pakete, welche nur teilweise
+den IP-Payload füllen, nicht an UDP-Lite-Anwendungen weitergeleitet werden können.
+Das Problem dabei wäre die fehlende Benachrichtigung an den Sender,
+welches durch folgende Maßnahmen laut dem RFC eingedämmt werden könnte:
+\begin{itemize}
+\item Explizite Nutzung der Signalisierung innerhalb des Payloads
+		ohne die partielle Prüfsumme zu verwenden, um dem Sender das
+		Erkennen der UDP-Lite-Unterstützung zu ermöglichen
+\item Nutzung eines anderen Protokolls zur Signalisierung,
+		wie zum Beispiel SIP, damit erkannt werden kann,
+		ob der Empfänger UDP-Lite nutzen kann
+\end{itemize}
+
+Da jedoch UDP-Lite eine eigene Identifikation besitzt,
+müssen diese Varianten nicht verwendet werden.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+
+\begin{frame}
+\frametitle{Bullet Points}
+\begin{itemize}
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{itemize}
+\end{frame}
+
+
+
+
+\subsection{Der Pseudo-Header}
+\subsection{Die Anwendungsschnittstelle}
+\subsection{Die IP-Schnittstelle}
+\subsection{IP-Jumbo-PDUs}
+\subsection{Betrachtung der niedrigeren Schichten}
+\subsection{Kompatibilität mit UDP}
+\subsection{Sicherheitsbetrachtungen}
+\subsection{IANA Protokollnummer}
+\section{Zusammenfassung}
+
+
+
 
 %------------------------------------------------
 
 \begin{frame}
 \frametitle{Bullet Points}
 \begin{itemize}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit
-\item Aliquam blandit faucibus nisi, sit amet dapibus enim tempus eu
-\item Nulla commodo, erat quis gravida posuere, elit lacus lobortis est, quis porttitor odio mauris at libero
-\item Nam cursus est eget velit posuere pellentesque
-\item Vestibulum faucibus velit a augue condimentum quis convallis nulla gravida
+\item 
+\item 
+\item 
+\item 
+\item 
 \end{itemize}
 \end{frame}
 
